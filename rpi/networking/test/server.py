@@ -1,6 +1,6 @@
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((socket.gethostname(),1024))
+s.bind((128.228.79.205,443))
 s.listen(5)
 
 while True:
