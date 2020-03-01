@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            video{
+                padding: 15px;
+            }
+            table{
+                float: left;
+                padding: 15px;
+                cursor: pointer;
+            }
+            th, td{
+                padding: 15px;
+                border: 1px solid black;
+            }
+            canvas{
+                float: middle;
+            }
+        </style>
+        <title>WCP 23- Computational Demo UI</title>
+    </head>
+
+    <body onload="init()">
+        <center><h1>Computational Demo UI</h1></center>
+        <center><h2>Cameras</h2></center>
+        <video width="480" height="300" controls>
+            <source src = "video1.mp4" type="video/mp4">
+            <source src = "video1.ogg" type="video/ogg">
+            Video isn't supported by browser.
+        </video>
+        <video width="480" height="300" controls>
+            <source src = "video2.mp4" type="video/mp4">
+            <source src = "video2.ogg" type="video/ogg">
+            Video isn't supported by browser.
+        </video>
+        <!---
+        <video width="640" height="480" controls>
+            <source src = "video3.mp4" type="video/mp4">
+            <source src = "video3.ogg" type="video/ogg">
+            Video isn't supported by browser.
+        </video> -->
+        <!-- <br> -->
+        <div>
+        <p>Insert pattern here: </p>
+        <table>
+            <tr>
+                <td onclick = "toggleColor(0)" ></td>
+                <td onclick = "toggleColor(1)" ></td>
+                <td onclick = "toggleColor(2)" ></td>
+                <td onclick = "toggleColor(3)" ></td>
+                <td onclick = "toggleColor(4);" ></td>
+                <td onclick = "toggleColor(5);" ></td>
+            </tr>
+            <tr>
+                <td onclick = "toggleColor(6);"></td>
+                <td onclick = "toggleColor(7);"></td>
+                <td onclick = "toggleColor(8);"></td>
+                <td onclick = "toggleColor(9);"></td>
+                <td onclick = "toggleColor(10);"></td>
+                <td onclick = "toggleColor(11);"></td>
+            </tr>
+            <tr>
+                <td onclick = "toggleColor(12);"></td>
+                <td onclick = "toggleColor(13);"></td>
+                <td onclick = "toggleColor(14);"></td>
+                <td onclick = "toggleColor(15);"></td>
+                <td onclick = "toggleColor(16);"></td>
+                <td onclick = "toggleColor(17);"></td>
+            </tr>
+            <tr>
+                <td onclick = "toggleColor(18);"></td>
+                <td onclick = "toggleColor(19);"></td>
+                <td onclick = "toggleColor(20);"></td>
+                <td onclick = "toggleColor(21);"></td>
+                <td onclick = "toggleColor(22);"></td>
+                <td onclick = "toggleColor(23);"></td>
+            </tr>
+            <tr>
+                <td  onclick = "toggleColor(24);"></td>
+                <td  onclick = "toggleColor(25);"></td>
+                <td  onclick = "toggleColor(26);"></td>
+                <td  onclick = "toggleColor(27);"></td>
+                <td  onclick = "toggleColor(28);"></td>
+                <td  onclick = "toggleColor(29);"></td>
+            </tr>
+            <tr>
+                <td  onclick = "toggleColor(30);"></td>
+                <td  onclick = "toggleColor(31);"></td>
+                <td  onclick = "toggleColor(32);"></td>
+                <td  onclick = "toggleColor(33);"></td>
+                <td  onclick = "toggleColor(34);"></td>
+                <td  onclick = "toggleColor(35);"></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+    <canvas  id="can" width="300" height="300" style="border:2px solid;"></canvas>
+    <div style="width:10px;height:10px;background:black;" id="black" onclick="color_switch(this)"></div>
+    <div style="width:15px;height:10px;background:white;border:2px solid black;" id="white" onclick="color_switch(this)"></div>
+    <img id="canvasimg" style="top:10%;left:52%;" style="display:none;">
+    <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+    <input type = "button" value = "Submit Drawing" id="submit" size = "30" onclick = "save()" >
+    </div>
+    <br>
+    <input type= "file" name = "Upload File" />
+    <input type = "submit" value = "Submit File" onCLick = "onClick()"/>
+    <script src = "pattern.js"></script> 
+    </body>
+</html>
