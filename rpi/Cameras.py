@@ -39,16 +39,3 @@ class Cameras:
         cv2.destroyAllWindows()
         self.webcam1.stop()
         self.picam.stop()
-
-cams = Cameras()
-while True:
-    frames = cams.grabFramesEach()
-    cams.showFramesEach(frames)
-
-    # check to see if a key was pressed
-    key = cv2.waitKey(1) & 0xFF
-    # if the `q` key was pressed, break from the loop
-    if key == ord("q"):
-        break
-
-cams.terminate()
