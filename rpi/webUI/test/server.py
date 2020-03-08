@@ -6,4 +6,4 @@ s.listen(5)
 while True:
 	clt, adr = s.accept()
 	print(f"Connection to {adr} established")
-	clt.send(bytes("This is the freakin message","utf-8"))
+	clt.send(bytes("This is the message","utf-8"))
