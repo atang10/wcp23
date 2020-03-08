@@ -22,6 +22,7 @@ def receiveAlarm(signum,stack):
     global cameras
     if(running):
 #        ts = time.time()
+        key = cv2.waitKey(1) & 0xFF #strange but necessary
         frames = cameras.grabFramesEach()
         cameras.showFramesEach(frames)
 #        network.sendFrames(feed1,freed2,feed3)
@@ -54,16 +55,8 @@ startIntervalTimer(1/frameRate)
 
 ## Main loop: ##
 while True:
-    # check to see if a key was pressed
-#    key = cv2.waitKey(1) & 0xFF
-    # if the `q` key was pressed, break from the loop
-#    if key == ord("q"):
-#        break
-
-    time.sleep(10)
-    break
 #    pattern = network.recievePattern()
-#    arm.drawPatternSVG("arm/swirl_test.svg")
+    arm.drawPatternSVG("arm/swirl_test.svg")
 #    resultFrame = cameras.captureResult()
 #    result = rd.determineResult(resultFrame)
 #    webui.sendResult(result)
