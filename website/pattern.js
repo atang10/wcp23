@@ -67,7 +67,7 @@ function findxy(res, e) {
         currX = e.clientX - canvas.offsetLeft;
         //currY = e.clientY - canvas.offsetTop;
         currY = e.clientY - canvas.getBoundingClientRect().top;
-        console.log("offsetLeft= " + canvas.getBoundingClientRect().left+"offsetTop= " + canvas.getBoundingClientRect().top + "mousex=" + e.clientX + "mousey=" + e.clientY+ "currX= "+currX +"currY"+ currY);
+        //console.log("offsetLeft= " + canvas.getBoundingClientRect().left+"offsetTop= " + canvas.getBoundingClientRect().top + "mousex=" + e.clientX + "mousey=" + e.clientY+ "currX= "+currX +"currY"+ currY);
         flag = true;
         dot_flag = true;
         if (dot_flag) {
