@@ -50,13 +50,14 @@ cameras = Cameras()
 #webUI = WebUI()
 
 running = True
-frameRate = 2 # fps
+frameRate = 30 # fps
 startIntervalTimer(1/frameRate)
 
 ## Main loop: ##
 while True:
 #    pattern = network.recievePattern()
     arm.drawPatternSVG("arm/swirl_test.svg")
+    break
 #    resultFrame = cameras.captureResult()
 #    result = rd.determineResult(resultFrame)
 #    webui.sendResult(result)
