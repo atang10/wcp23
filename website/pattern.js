@@ -5,6 +5,7 @@ currX = 0,
 prevY = 0,
 currY = 0,
 dot_flag = false;
+var first = 0;
 var x = "black",
 y = 2; //4
 function toggleColor (index){
@@ -22,6 +23,7 @@ function toggleColor (index){
 function init() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
+    sctx = new C2S(400,400);
     w = canvas.width;
     h = canvas.height;
 
@@ -46,17 +48,28 @@ function draw() {
     ctx.lineWidth = y;
     ctx.stroke();
     ctx.closePath();
+    sctx.beginPath();
+    sctx.moveTo(prevX, prevY);
+    sctx.lineTo(currX, currY);
+    sctx.strokeStyle = x;
+    sctx.lineWidth = y;
+    sctx.stroke();
+    sctx.closePath();
 }
 function erase() {
     var m = confirm("Want to clear");
+    first = 0;
     if (m) {
         ctx.clearRect(0, 0, w, h);
         document.getElementById("canvasimg").style.display = "none";
     }
+    sctx.__clearCanvas();
 }
 function save() {
     document.getElementById("canvasimg").style.border = "2px solid";
     var dataURL = canvas.toDataURL();
+    var mySerializedSVG = sctx.getSerializedSvg();
+    console.log(mySerializedSVG);
     document.getElementById("canvasimg").src = dataURL;
     document.getElementById("canvasimg").style.display = "inline";
 }
@@ -68,13 +81,23 @@ function findxy(res, e) {
         //currY = e.clientY - canvas.offsetTop;
         currY = e.clientY - canvas.getBoundingClientRect().top;
         //console.log("offsetLeft= " + canvas.getBoundingClientRect().left+"offsetTop= " + canvas.getBoundingClientRect().top + "mousex=" + e.clientX + "mousey=" + e.clientY+ "currX= "+currX +"currY"+ currY);
-        flag = true;
-        dot_flag = true;
+        //flag = true;
+        //dot_flag = true;
+         //console.log(first);
+         if (first < 1){
+            flag = true;
+            dot_flag = true;
+        }
         if (dot_flag) {
             ctx.beginPath();
             ctx.fillStyle = x;
             ctx.fillRect(currX, currY, 2, 2);
             ctx.closePath();
+            sctx.beginPath();
+            sctx.fillStyle = x;
+            sctx.fillRect(currX, currY, 2, 2);
+            sctx.closePath();
+            first = first + 1;
             dot_flag = false;
         }
     }

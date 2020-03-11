@@ -96,8 +96,10 @@
     </div>
     <div>
     <canvas  id="can" width="300" height="300" style="border:2px solid;"></canvas>
+    <!--
     <div style="width:10px;height:10px;background:black;" id="black" onclick="color_switch(this)"></div>
     <div style="width:15px;height:10px;background:white;border:2px solid black;" id="white" onclick="color_switch(this)"></div>
+    -->
     <img id="canvasimg" style="top:10%;left:52%;" style="display:none;">
     <input type="button" value="clear" id="clr" size="23" onclick="erase()">
     <input type = "button" value = "Submit Drawing" id="submit" size = "30" onclick = "save()" >
@@ -105,6 +107,7 @@
     <br>
     <input type= "file" name = "Upload File" />
     <input type = "submit" value = "Submit File" onCLick = "onClick()"/>
+    <script src = "canvas2svg.js"></script>
     <script src = "pattern.js"></script> 
     </body>
 </html>
