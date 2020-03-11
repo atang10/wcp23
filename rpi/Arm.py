@@ -21,3 +21,7 @@ class Arm:
         self.axidraw.plot_run()
 
 #    def drawPatternCoord(self,pattern)
+#        self.axidraw.disconnect()
+
+    def terminate(self):
+        pass
