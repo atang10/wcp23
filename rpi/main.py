@@ -56,7 +56,7 @@ startIntervalTimer(1/frameRate)
 ## Main loop: ##
 while True:
 #    pattern = network.recievePattern()
-    arm.drawPatternSVG("arm/swirl_test.svg")
+    arm.drawPatternSVG("arm/spiral.svg")
     break
 #    resultFrame = cameras.captureResult()
 #    result = rd.determineResult(resultFrame)
