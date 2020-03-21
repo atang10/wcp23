@@ -54,14 +54,18 @@ frameRate = 30 # fps
 startIntervalTimer(1/frameRate)
 
 ## Main loop: ##
-while True:
-#    pattern = network.recievePattern()
-    arm.drawPatternSVG("arm/spiral.svg")
-    break
-#    resultFrame = cameras.captureResult()
-#    result = rd.determineResult(resultFrame)
-#    webui.sendResult(result)
-#    hardware.flipBottles()
-#    hardware.pumpTrough()
-terminate((arm,cameras))
+try:
+    while True:
+    #    pattern = network.recievePattern()
+        arm.drawPatternSVG("arm/spiral.svg")
+        break
+    #    resultFrame = cameras.captureResult()
+    #    result = rd.determineResult(resultFrame)
+    #    webui.sendResult(result)
+    #    hardware.flipBottles()
+    #    hardware.pumpTrough()
+except KeyboardInterrupt:
+    print("Ctrl C pressed, terminating...")
+finally:
+    terminate((arm,cameras))
 
