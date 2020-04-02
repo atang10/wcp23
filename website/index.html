@@ -105,9 +105,15 @@
     <input type = "button" value = "Submit Drawing" id="submit" size = "30" onclick = "save()" >
     </div>
     <br>
-    <input type= "file" name = "Upload File" />
-    <input type = "submit" value = "Submit File" onCLick = "onClick()"/>
-    <script src = "canvas2svg.js"></script>
+    <div id= "dropbox">
+        <span class="message">Drop images here to upload. <br /></span>
+    </div>
     <script src = "pattern.js"></script> 
+    <!-- Jquery Library-->
+    <script src="http://code.jquery.com/jquery-1.6.3.min.js"> </script>
+    <!-- HTML5 Uploader plugin-->
+    <script src="assets/js/jquery.filedrop.js"></script>
+
+    <script src
     </body>
 </html>

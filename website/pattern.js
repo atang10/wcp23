@@ -23,7 +23,6 @@ function toggleColor (index){
 function init() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
-    sctx = new C2S(400,400);
     w = canvas.width;
     h = canvas.height;
 
@@ -48,13 +47,6 @@ function draw() {
     ctx.lineWidth = y;
     ctx.stroke();
     ctx.closePath();
-    sctx.beginPath();
-    sctx.moveTo(prevX, prevY);
-    sctx.lineTo(currX, currY);
-    sctx.strokeStyle = x;
-    sctx.lineWidth = y;
-    sctx.stroke();
-    sctx.closePath();
 }
 function erase() {
     var m = confirm("Want to clear");
@@ -63,13 +55,10 @@ function erase() {
         ctx.clearRect(0, 0, w, h);
         document.getElementById("canvasimg").style.display = "none";
     }
-    sctx.__clearCanvas();
 }
 function save() {
     document.getElementById("canvasimg").style.border = "2px solid";
     var dataURL = canvas.toDataURL();
-    var mySerializedSVG = sctx.getSerializedSvg();
-    console.log(mySerializedSVG);
     document.getElementById("canvasimg").src = dataURL;
     document.getElementById("canvasimg").style.display = "inline";
 }
@@ -93,10 +82,6 @@ function findxy(res, e) {
             ctx.fillStyle = x;
             ctx.fillRect(currX, currY, 2, 2);
             ctx.closePath();
-            sctx.beginPath();
-            sctx.fillStyle = x;
-            sctx.fillRect(currX, currY, 2, 2);
-            sctx.closePath();
             first = first + 1;
             dot_flag = false;
         }
