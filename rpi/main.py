@@ -57,7 +57,7 @@ startIntervalTimer(1/frameRate)
 try:
     while True:
     #    pattern = network.recievePattern()
-        arm.drawPatternSVG("arm/border4.svg")
+        arm.drawPatternSVG("arm/grid.svg")
         break
     #    resultFrame = cameras.captureResult()
     #    result = rd.determineResult(resultFrame)
