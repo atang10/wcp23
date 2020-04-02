@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <title>Post XMLHttpRequest -JS</title>
+    <body>
+        <h2 id="title">Post XMLHttpRequest -JS</h2>
+        <button id = "button">Get Name</button>
+        <p id = "serverResponse"></p>
+        <hr>
+        <h1>Get Form</h1>
+        <form method = "GET" action="dom.php">
+            <input type ="text" name = "name">
+            <input type = "submit" value = "Submit">
+        </form>
+
+        <h1>AJX Form</h1>
+        <form id = "getForm">
+            <input type ="text" name = "name" id="name1">
+            <input type = "submit" value = "Submit">
+        </form>
+        <h1>POST Form</h1>
+        <form method = "GET" action="dom.php">
+            <input type ="text" name = "name">
+            <input type = "submit" value = "Submit">
+        </form>
+    </body>
+    <script type="text/javascript">
+        document.getElementById('button').addEventListener('click',getName);
+        document.getElementById('getForm').addEventListener('submit',getName);
+        function getName(e){
+            e.preventDefault();
+            var name =  document.getElementById('name1').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','dom.php?name='+name,true);
+
+            xhr.onload = function(){
+                console.log(this.responseText);
+
+            }
+        
+            xhr.send();
+        }
+    </script>
+</html>
