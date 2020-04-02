@@ -10,33 +10,33 @@ class Hardware:
         self.valvePin = pins[2]
 
         #Servo initialization:
-        GPIO.setup(self.pins[0],GPIO.OUT)
-        self.servo = GPIO.PWM(self.pins[0],50) #pwm on pins[0] and 50Hz freq
+        GPIO.setup(self.servoPin,GPIO.OUT)
+        self.servo = GPIO.PWM(self.servoPin,50) #pwm on pins[0] and 50Hz freq
         self.servo.start(5) # 5% pwm duty cycle = 1ms = 0 degrees 
 
         #Pump initialization:
-        GPIO.setup(self.pins[1],GPIO.OUT, initial=0)
+        GPIO.setup(self.pumpPin,GPIO.OUT, initial=0)
 
         #Valve initialization:
-        GPIO.setup(self.pins[2],GPIO.OUT, initial=0) 
+        GPIO.setup(self.valvePin,GPIO.OUT, initial=0) 
 
     def terminate(self):
-        servo.stop()      # stop PWM
+        self.servo.stop()      # stop PWM
         GPIO.cleanup()  # resets GPIO ports used back
 
-    def flip_bottles(self):
+    def flipBottles(self):
         self.servo.ChangeDutyCycle(10) # 10% pwm = 2ms = 180 degrees
         sleep(5)
         self.servo.ChangeDutyCycle(5) # 5% pwm
 
-    def pump_on(self):
-        GPIO.output(pumpPin,GPIO.HIGH)
+    def pumpOn(self):
+        GPIO.output(self.pumpPin,GPIO.HIGH)
 
-    def pump_off(self):
-        GPIO.output(pumpPin,GPIO.LOW)
+    def pumpOff(self):
+        GPIO.output(self.pumpPin,GPIO.LOW)
 
-    def valve_open(self):
-        GPIO.output(led,GPIO.HIGH)
+    def valveOpen(self):
+        GPIO.output(self.valvePin,GPIO.HIGH)
 
-    def valve_close(self):
-        GPIO.output(led,GPIO.LOW)
+    def valveClose(self):
+        GPIO.output(self.valvePin,GPIO.LOW)

@@ -45,13 +45,13 @@ def startIntervalTimer(interval):
 
 ## Initializing module objects: ##
 arm = Arm()
-cameras = Cameras()
+#cameras = Cameras()
 #hardware = Hardware()
 #webUI = WebUI()
 
-running = True
-frameRate = 30 # fps
-startIntervalTimer(1/frameRate)
+#running = True
+#frameRate = 30 # fps
+#startIntervalTimer(1/frameRate)
 
 ## Main loop: ##
 try:
