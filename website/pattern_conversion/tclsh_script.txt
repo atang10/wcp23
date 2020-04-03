@@ -1,0 +1,2 @@
+for {set i 1} {$i<9} {incr i} {convert test_$i.png -resize 750x750 test_$i.png}
+for {set i 1} {$i<9} {incr i} {convert test_$i.png test_$i.pnm; potrace test_$i.pnm -s -o test_$i.svg}
