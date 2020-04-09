@@ -1,3 +1,9 @@
+/*
+grid variable and function toggleColor is to change a color for the table. This function is not needed anymore.
+var canvas,ctx, and flag is used as the object that holds the canvas.
+var first allows you to draw until you don't use your mouse.
+y is how thick the pen you want to be.
+*/
 var grid = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var canvas, ctx, flag = false,
 prevX = 0,
@@ -21,6 +27,7 @@ function toggleColor (index){
     }
 }   
 function init() {
+    //initilize and add an event listener based off of the state of the mouse.
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
     w = canvas.width;
@@ -39,6 +46,7 @@ function init() {
         findxy('out', e)
     }, false);
 }
+//Draws based to the position where your mouse is.
 function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
@@ -48,9 +56,10 @@ function draw() {
     ctx.stroke();
     ctx.closePath();
 }
+//Erases the whole canvas drawing.
 function erase() {
     var m = confirm("Want to clear");
-    first = 0;
+    first = 0; //resets first to 0 so you can redraw again.
     if (m) {
         ctx.clearRect(0, 0, w, h);
         document.getElementById("canvasimg").style.display = "none";
@@ -62,7 +71,9 @@ function save() {
     document.getElementById("canvasimg").src = dataURL;
     document.getElementById("canvasimg").style.display = "inline";
 }
+//Function that calculates the position
 function findxy(res, e) {
+    //Mouse is clicked in down state.
     if (res == 'down') {
         prevX = currX;
         prevY = currY;
@@ -86,9 +97,11 @@ function findxy(res, e) {
             dot_flag = false;
         }
     }
+    //If out of zone or picked up your pen.
     if (res == 'up' || res == "out") {
         flag = false;
     }
+    //if starting to move your mouse.
     if (res == 'move') {
         if (flag) {
             prevX = currX;
@@ -100,6 +113,7 @@ function findxy(res, e) {
         }
     }
 }
+//Function originally to change color of your pen
 function color_switch(obj) {
     switch (obj.id) {
         case "black":
