@@ -108,16 +108,23 @@
     <input type = "button" value = "Submit Drawing" id="submit" size = "30" onclick = "save()" >
     </div>
     <br>
-    <!-- Area to allow picture to be uploaded-->
+    <script src = "pattern.js"></script> 
+    <!-- Area to allow picture to be uploaded, wasn't able to make it work. Has two different methods I'm trying to test.-->
+    <!-- Method 1-->
     <div id= "dropbox">
         <span class="message">Drop images here to upload. <br /></span>
     </div>
-    <script src = "pattern.js"></script> 
+    
     <!-- Jquery Library-->
     <script src="http://code.jquery.com/jquery-1.6.3.min.js"> </script>
     <!-- HTML5 Uploader plugin-->
     <script src="assets/js/jquery.filedrop.js"></script>
 
+    <!-- Method 2-->
+    <form action= "upload.php" method="post" enctype="multipart/form-data">
+        <input type= "file" name = "fileToUpload" id= "fileToUpload" >
+        <input type = "submit" value = "Submit File" name="submit">
+    </form>
 
     </body>
 </html>
